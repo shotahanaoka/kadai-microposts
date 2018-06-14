@@ -96,7 +96,7 @@ public function favorite($micropostId)
     // confirming that it is not you
     $its_me = $this->id == $micropostId;
 
-    if ($exist /*|| $its_me*/) {
+    if ($exist) {
         // do nothing if already following
         return false;
     } else {
@@ -114,7 +114,7 @@ public function unfavorite($micropostId)
     $its_me = $this->id == $micropostId;
 
 
-    if ($exist /*&& !$its_me*/) {
+    if ($exist) {
         // stop following if following
         $this->favoritings()->detach($micropostId);
         return true;
